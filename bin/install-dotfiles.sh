@@ -28,24 +28,35 @@ install_submodules () {
     cd ~/.dotfiles
     git submodule init
     git submodule update
-    cd ~/.dotfiles/spf13-vim
-    ./bootstrap.sh
 }
 
-for i in $dots; do
-    ln -s .dotfiles/$i .
-done
+install_vim () {
+    cd ~/.dotfiles/spf13-vim
+    # ./bootstrap.sh
+    cd ~/.dotfiles
+    ./bin/vim-upgrade.sh install
+}
 
 backup_dotfiles () {
+    cd ~
     for i in $dots; do
-        [ -e $i ] && mv $i .dotfiles.$dt
+        [ -e $i ] && mv $i ~/.dotfiles.$dt
     done
 }
 
 install_dotfiles () {
+    cd ~
     for i in $dots; do
-        ln -s .dotfiles/$i .
+        ln -sf ~/.dotfiles/$i .
     done
+}
+
+install_ssh () {
+    [ -e ~/.ssh/config ] && mv ~/.ssh/config ~/.dotfiles.$dt/.ssh
+    if [ -d ~/.ssh ]; then
+        cd ~/.ssh
+        ln -s ~/.dotfiles/.ssh/config .
+    fi
 }
 
 install_haskell_extras () {
@@ -56,18 +67,17 @@ install_haskell_extras () {
 }
 
 configure_bash () {
-    cat << EOF >> ~/.bashrc
+    grep -q gitprompt ~/.bashrc
+    [ $? = 1 ] && cat << EOF >> ~/.bashrc
 
-    shopt -s extglob
-
-    GIT_PROMPT_ONLY_IN_REPO=1
-    . ~/.dotfiles/bash-git-prompt/gitprompt.sh
-
+GIT_PROMPT_ONLY_IN_REPO=1
+. ~/.dotfiles/bash-git-prompt/gitprompt.sh
 EOF
 }
 
 (backup_dotfiles)
 (install_submodules)
+(install_vim)
 (install_dotfiles)
 (install_haskell_extras)
 (configure_bash)
