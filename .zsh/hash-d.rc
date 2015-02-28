@@ -1,0 +1,8 @@
+hash -d Dowloads=~/Downloads
+hash -d Dropbox=~/Dropbox
+hash -d Desktop=~/Desktop
+hash -d work=/global/work/
+hash -d doc=/usr/share/doc
+hash -d mf=/opt/modulefiles
+
+# vim: set syntax=zsh:

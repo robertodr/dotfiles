@@ -1,0 +1,9 @@
+alias ls='ls -C --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias ltr='ls -ltr'
+alias vi='vim'
+alias diff='diff -u'
+alias xopen='xdg-open'
+

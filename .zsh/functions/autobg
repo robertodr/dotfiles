@@ -1,0 +1,13 @@
+function autobg() {
+	jobs -s >| /tmp/j$$
+	while read jnum jdesc; do
+		case $jdesc in
+			(*( vi | vim | *emacs )*) ;;	# Don't autobg any editors,
+			(*( [z]less | more | most )*) ;;	# Don't autobg any pagers,
+			(*) bg %${${jnum#\[}%\]} ;;	# but anything else is OK.
+		esac
+	done < /tmp/j$$
+	rm -f /tmp/j$$
+}
+
+# vim: set syntax=zsh:

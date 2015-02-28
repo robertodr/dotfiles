@@ -1,0 +1,7 @@
+
+namedir () { 
+hash -d $1=$PWD 
+}
+namedir "$@"
+
+# vim: set syntax=zsh:

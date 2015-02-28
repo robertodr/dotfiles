@@ -1,0 +1,26 @@
+[merge]
+    tool = diffuse
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+[user]
+    name =
+    email = .
+[push]
+    # matching, tracking or current
+    default = current
+[pull]
+    rebase = true
+[alias]
+    ll = log --stat
+    co = checkout
+    ci = commit
+    st = status
+    unstage = reset HEAD
+    pick = cherry-pick
+    history = log --graph --oneline
+[core]
+    editor = vim
+[help]
+    autocorrect = 1
