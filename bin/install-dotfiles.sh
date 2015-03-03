@@ -55,7 +55,7 @@ install_ssh () {
     [ -e ~/.ssh/config ] && mv ~/.ssh/config ~/.dotfiles.$dt/.ssh
     if [ -d ~/.ssh ]; then
         cd ~/.ssh
-        ln -s ~/.dotfiles/.ssh/config .
+        ln -sf ~/.dotfiles/.ssh/config .
     fi
 }
 
@@ -63,16 +63,16 @@ install_haskell_extras () {
     [ -x ~/.cabal/bin/cabal ] || return
     if [ -d ~/bin ]; then
         cd ~/bin
-        ln -s ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
+        ln -sf ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
     fi
     cd ~/.dotfiles/zsh-git-prompt
+    [ -d dist ] && rm -rf dist
     cabal update
     cabal install --only-dep
     cabal build
 }
 
 configure_bash () {
-    grep -q gitprompt ~/.bashrc
     sed -i '/#bash-git-prompt begin/,/#bash-git-prompt end/d' ~/.bashrc
     [ $? = 1 ] && cat << EOF >> ~/.bashrc
 #bash-git-prompt begin
