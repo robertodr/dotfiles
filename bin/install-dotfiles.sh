@@ -74,7 +74,7 @@ install_haskell_extras () {
 
 configure_bash () {
     sed -i '/#bash-git-prompt begin/,/#bash-git-prompt end/d' ~/.bashrc
-    [ $? = 1 ] && cat << EOF >> ~/.bashrc
+    cat << EOF >> ~/.bashrc
 #bash-git-prompt begin
 unset __GIT_PROMPT_DIR
 GIT_PROMPT_THEME="Solarized_Single_line_NoExitState"
