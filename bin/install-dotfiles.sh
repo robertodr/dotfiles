@@ -66,6 +66,8 @@ install_haskell_extras () {
         ln -s ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
     fi
     cd ~/.dotfiles/zsh-git-prompt
+    cabal update
+    cabal install --only-dep
     cabal build
 }
 
