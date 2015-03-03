@@ -27,8 +27,10 @@ function precmd() {
 }
 
 if [ -f ~/.dotfiles/zsh-git-prompt/zshrc.sh ]; then
+    [ -x  ~/.dotfiles/zsh-git-prompt/dist/build/gitstatus/gitstatus ] && \
+        GIT_PROMPT_EXECUTABLE="haskell"
     . ~/.dotfiles/zsh-git-prompt/zshrc.sh
-    PROMPT='%m$(git_super_status):%~%# '
+    PROMPT='%m:%~$(git_super_status)%# '
 fi
 
 limit coredumpsize 0
