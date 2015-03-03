@@ -60,18 +60,26 @@ install_ssh () {
 }
 
 install_haskell_extras () {
+    [ -x ~/.cabal/bin/cabal ] || return
     if [ -d ~/bin ]; then
         cd ~/bin
         ln -s ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
     fi
+    cd ~/.dotfiles/zsh-git-prompt
+    cabal build
 }
 
 configure_bash () {
     grep -q gitprompt ~/.bashrc
+    sed -i '/#bash-git-prompt begin/,/#bash-git-prompt end/d' ~/.bashrc
     [ $? = 1 ] && cat << EOF >> ~/.bashrc
-
+#bash-git-prompt begin
+unset __GIT_PROMPT_DIR
+GIT_PROMPT_THEME="Solarized_Single_line_NoExitState"
 GIT_PROMPT_ONLY_IN_REPO=1
-. ~/.dotfiles/bash-git-prompt/gitprompt.sh
+GIT_PROMPT_FETCH_REMOTE_STATUS=0
+source ~/.dotfiles/bash-git-prompt/gitprompt.sh
+#bash-git-prompt end
 EOF
 }
 
