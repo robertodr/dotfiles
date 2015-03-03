@@ -32,7 +32,7 @@ install_submodules () {
 
 install_vim () {
     cd ~/.dotfiles/spf13-vim
-    # ./bootstrap.sh
+    ./bootstrap.sh
     cd ~/.dotfiles
     ./bin/vim-upgrade.sh install
 }
