@@ -1,9 +1,9 @@
-[submodule "spf13-vim"]
-	path = spf13-vim
-	url = https://github.com/spf13/spf13-vim.git
 [submodule "zsh-git-prompt"]
 	path = zsh-git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt.git
+	url = https://github.com/juselius/zsh-git-prompt.git
 [submodule "bash-git-prompt"]
 	path = bash-git-prompt
-	url = https://github.com/magicmonty/bash-git-prompt.git
+	url = https://github.com/juselius/bash-git-prompt.git
+[submodule "spf13-vim"]
+	path = spf13-vim
+	url = https://github.com/juselius/spf13-vim.git
