@@ -83,10 +83,11 @@ source ~/.dotfiles/bash-git-prompt/gitprompt.sh
 EOF
 }
 
-(backup_dotfiles)
 (install_submodules)
-(install_vim)
+(backup_dotfiles)
 (install_dotfiles)
+(install_vim)
 (install_haskell_extras)
 (configure_bash)
+#(install_ssh)
 
