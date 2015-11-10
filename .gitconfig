@@ -1,26 +1,41 @@
-[merge]
-    tool = diffuse
-[color]
-    branch = auto
-    diff = auto
-    status = auto
 [user]
-    name =
-    email = .
-[push]
-    # matching, tracking or current
-    default = current
-[pull]
-    rebase = true
-[alias]
-    ll = log --stat
-    co = checkout
-    ci = commit
-    st = status
-    unstage = reset HEAD
-    pick = cherry-pick
-    history = log --graph --oneline
+  name = Roberto Di Remigio
+  email = roberto.d.remigio@uit.no
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[color]
+  ui = true
 [core]
-    editor = vim
-[help]
-    autocorrect = 1
+  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+  editor = vim
+[grep]
+  linenumber = true
+[push]
+  default = simple
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[diff]
+  tool = meld
+[difftool]
+  prompt = false
+[alias]
+  oldest-ancestor = !bash -c 'diff -u <(git rev-list --first-parent "${1:-master}") <(git rev-list --first-parent "${2:-HEAD}") | sed -ne \"s/^ //p\" | head -1' -
+  clone = clone --recursive
+  last = log -1 HEAD
+  unstage = reset HEAD --
+  ll = log --stat
+  history = log --graph --oneline
