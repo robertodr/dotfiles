@@ -8,20 +8,15 @@ cd ~
 
 read -r -d '' dots << EOF
 .aliases
-.bcrc
-.codex
-.ghci
+.bashrc
 .gitconfig
 .gitignore
-.haskeline
+.git-prompt-colors
+.psi4rc
+.qchemrc
 .vim.local
-.vimrc.before.local
 .vimrc.bundles.local
 .vimrc.local
-.zprofile
-.zsh
-.zshenv
-.zshrc
 EOF
 
 install_submodules () {
@@ -31,10 +26,8 @@ install_submodules () {
 }
 
 install_vim () {
-    cd ~/.dotfiles/spf13-vim
-    ./bootstrap.sh
-    cd ~/.dotfiles
-    ./bin/vim-upgrade.sh install
+  curl https://j.mp/spf13-vim3 -L -o - | sh
+  vim +BundleInstall +BundleUpdate +BundleClean! +qall
 }
 
 backup_dotfiles () {
@@ -65,31 +58,15 @@ install_haskell_extras () {
         cd ~/bin
         ln -sf ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
     fi
-    cd ~/.dotfiles/zsh-git-prompt
     [ -d dist ] && rm -rf dist
     cabal update
     cabal install --only-dep
     cabal build
 }
 
-configure_bash () {
-    sed -i '/#bash-git-prompt begin/,/#bash-git-prompt end/d' ~/.bashrc
-    cat << EOF >> ~/.bashrc
-#bash-git-prompt begin
-unset __GIT_PROMPT_DIR
-GIT_PROMPT_THEME="Solarized_Single_line_NoExitState"
-GIT_PROMPT_ONLY_IN_REPO=1
-GIT_PROMPT_FETCH_REMOTE_STATUS=0
-source ~/.dotfiles/bash-git-prompt/gitprompt.sh
-#bash-git-prompt end
-EOF
-}
-
 (install_submodules)
 (backup_dotfiles)
 (install_dotfiles)
 (install_vim)
-(install_haskell_extras)
-(configure_bash)
-#(install_ssh)
-
+#(install_haskell_extras)
+(install_ssh)
