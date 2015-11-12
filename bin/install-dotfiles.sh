@@ -20,9 +20,9 @@ read -r -d '' dots << EOF
 EOF
 
 install_submodules () {
-    cd ~/.dotfiles
-    git submodule init
-    git submodule update
+  cd ~/.dotfiles
+  gisubmodule init
+  gisubmodule update
 }
 
 install_vim () {
@@ -31,37 +31,37 @@ install_vim () {
 }
 
 backup_dotfiles () {
-    cd ~
-    for i in $dots; do
-        [ -e $i ] && mv $i ~/.dotfiles.$dt
-    done
+  cd ~
+  for i in $dots; do
+    [ -e $i ] && mv $i ~/.dotfiles.$dt
+  done
 }
 
 install_dotfiles () {
-    cd ~
-    for i in $dots; do
-        ln -sf ~/.dotfiles/$i .
-    done
+  cd ~
+  for i in $dots; do
+    ln -sf ~/.dotfiles/$i .
+  done
 }
 
 install_ssh () {
-    [ -e ~/.ssh/config ] && mv ~/.ssh/config ~/.dotfiles.$dt/.ssh
-    if [ -d ~/.ssh ]; then
-        cd ~/.ssh
-        ln -sf ~/.dotfiles/.ssh/config .
-    fi
+  [ -e ~/.ssh/config ] && mv ~/.ssh/config ~/.dotfiles.$dt/.ssh
+  if [ -d ~/.ssh ]; then
+    cd ~/.ssh
+    ln -sf ~/.dotfiles/.ssh/config .
+  fi
 }
 
 install_haskell_extras () {
-    [ -x ~/.cabal/bin/cabal ] || return
-    if [ -d ~/bin ]; then
-        cd ~/bin
-        ln -sf ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
-    fi
-    [ -d dist ] && rm -rf dist
-    cabal update
-    cabal install --only-dep
-    cabal build
+  [ -x ~/.cabal/bin/cabal ] || return
+  if [ -d ~/bin ]; then
+    cd ~/bin
+    ln -sf ~/.dotfiles/bin/{git-hscope,haskell-install.sh} .
+  fi
+  [ -d dist ] && rm -rf dist
+  cabal update
+  cabal install --only-dep
+  cabal build
 }
 
 (install_submodules)
