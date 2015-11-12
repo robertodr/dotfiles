@@ -1,66 +1,26 @@
 " vim:ft=vim
 
 " General
-Bundle 'myusuf3/numbers.vim'
-Bundle 'jamessan/vim-gnupg'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-repeat'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/sessionman.vim'
-Bundle 'matchit.zip'
-Bundle 'bling/vim-airline'
-Bundle 'bling/vim-bufferline'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'mbbill/undotree'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-indent'
-Bundle 'reedes/vim-textobj-sentence'
-Bundle 'reedes/vim-textobj-quote'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'ervandew/supertab'
 Bundle 'moll/vim-bbye'
 Bundle 'vim-scripts/gitignore'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-commentary'
-Bundle 'majutsushi/tagbar'
 
 if has("lua")
-    Bundle 'Shougo/neocomplete.vim'
+  Bundle 'Shougo/neocomplete.vim'
 else
-    Bundle 'Shougo/neocomplcache'
+  Bundle 'Shougo/neocomplcache'
 endif
-" Bundle 'Shougo/neosnippet.vim'
-" Bundle 'Valloric/YouCompleteMe'
-" Bundle 'vim-scripts/restore_view.vim'
-" Bundle 'spf13/vim-autoclose'
-
-" Python
-" Pick either python-mode or pyflakes & pydoc
-Bundle 'klen/python-mode'
-Bundle 'yssource/python.vim'
-Bundle 'python_match.vim'
-Bundle 'pythoncomplete'
-
-" Misc
-Bundle 'tpope/vim-markdown'
-
-" Git
-Bundle 'int3/vim-extradite'
-Bundle 'mhinz/vim-signify'
-Bundle 'tpope/vim-fugitive'
 
 " Text manipulation
-Bundle 'vim-scripts/Align'
 Bundle 'vim-scripts/Gundo'
-Bundle 'michaeljsmith/vim-indent-object'
+
+" TeX-9 plugin with BibLaTeX support
+Bundle 'alanpog/TeX-9'
 
 " Haskell
-Bundle 'raichoo/haskell-vim'
+Bundle 'neovimhaskell/haskell-vim'
 Bundle 'eagletmt/neco-ghc'
 Bundle 'Twinside/vim-hoogle'
 Bundle 'eagletmt/ghcmod-vim'
-" Bundle 'bitc/vim-hdevtools'
-" Bundle 'enomsg/vim-haskellConcealPlus'
-" Bundle 'lukerandall/haskellmode-vim'
-" Bundle 'dag/vim2hs'
+Bundle 'enomsg/vim-haskellConcealPlus'

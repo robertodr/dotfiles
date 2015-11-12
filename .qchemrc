@@ -1,0 +1,13 @@
+export MKL_NUM_THREADS="4"
+export MKL_DYNAMIC="FALSE"
+export OMP_NUM_THREADS=1
+
+export WORKSPACE=/home/roberto/Workspace
+export SCRATCH=/home/roberto/Scratch
+
+export DALTON_TMPDIR=$SCRATCH/daltonscr
+
+export DIRAC_TMPDIR=$SCRATCH/diracscr
+
+export PSI4DATADIR=$WORKSPACE/psi4/lib
+export PSI_SCRATCH=$SCRATCH/psi4scr

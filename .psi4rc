@@ -1,0 +1,2 @@
+import os
+psi4_io.set_default_path('/home/roberto/Scratch/psi4scr')
