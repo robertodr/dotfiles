@@ -1,4 +1,1 @@
-if [ -f /opt/intel/bin/compilervar.sh ]; then
-  source /opt/intel/bin/compilervar.sh intel64
-  export MATH_ROOT=$MKLROOT
-fi
+export MATH_ROOT=/opt/intel/mkl
