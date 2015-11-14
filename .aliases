@@ -30,4 +30,5 @@ eval "$(thefuck --alias FUCK)"
 alias ltr='ls -ltrh'
 alias hugs='hugs -Evim'
 
+source ~/.mklrc
 source ~/.qchemrc

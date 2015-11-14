@@ -12,6 +12,7 @@ read -r -d '' dots << EOF
 .gitconfig
 .gitignore
 .git-prompt-colors
+.mklrc
 .psi4rc
 .qchemrc
 .vim.local
@@ -21,8 +22,7 @@ EOF
 
 install_submodules () {
   cd ~/.dotfiles
-  gisubmodule init
-  gisubmodule update
+  git submodule update --init --recursive
 }
 
 install_vim () {
