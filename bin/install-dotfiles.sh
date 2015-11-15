@@ -27,7 +27,7 @@ install_submodules () {
 
 install_vim () {
   curl https://j.mp/spf13-vim3 -L -o - | sh
-  vim +BundleInstall +BundleUpdate +BundleClean! +qall
+  vim +BundleInstall! +BundleClean +qall
 }
 
 backup_dotfiles () {

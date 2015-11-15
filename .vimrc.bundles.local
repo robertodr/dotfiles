@@ -24,3 +24,6 @@ Bundle 'eagletmt/neco-ghc'
 Bundle 'Twinside/vim-hoogle'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'enomsg/vim-haskellConcealPlus'
+
+" CMake
+Bundle 'robertodr/vim-cmake'
