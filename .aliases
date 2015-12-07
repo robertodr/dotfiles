@@ -30,5 +30,7 @@ eval "$(thefuck --alias FUCK)"
 alias ltr='ls -ltrh'
 alias hugs='hugs -Evim'
 
+export PATH=$HOME/.cabal/bin:$PATH
+
 source ~/.mklrc
 source ~/.qchemrc
